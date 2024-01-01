@@ -8,10 +8,13 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 class SpaceCollisionDataset(Dataset):
     def __init__(self, csv_file, selected_columns=None, is_train=True):
         if selected_columns is None:
-            selected_columns = []
-        selected_columns.extend(["risk"])
+            # Load all columns if selected_columns is not provided
+            self.data = pd.read_csv(csv_file)
+        else:
+            # Load specific columns
+            selected_columns.extend(["risk"])
+            self.data = pd.read_csv(csv_file, usecols=selected_columns)
 
-        self.data = pd.read_csv(csv_file, usecols=selected_columns)
         print("Columns in the dataset:", self.data.columns)
         self.is_train = is_train
 
@@ -59,6 +62,7 @@ class SpaceCollisionDataset(Dataset):
 
 
 if __name__ == "__main__":
+    # To load the whole dataset set columns_to_process to None
     columns_to_process = ["mission_id", "time_to_tca"]
     train_dataset = SpaceCollisionDataset(
         "../data/training/train_data.csv",
