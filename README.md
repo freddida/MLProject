@@ -21,7 +21,7 @@ October 2019.
 
 ## Usage
 
-## Before pushing to git
+## Before pushing to   git
 
 * Run ```flake8 .``` for linting
 * Run ```black .``` for auto formatting
