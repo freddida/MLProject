@@ -1,5 +1,4 @@
 import torch
-from torch import Tensor
 
 
 def check_mps_device() -> None:
