@@ -8,3 +8,6 @@ torchview
 graphviz
 plotly
 nbformat>=4.2.0
+dwave-system
+dwave-scikit-learn-plugin
+imblearn
