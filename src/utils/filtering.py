@@ -42,6 +42,7 @@ def filter_data(data: DataFrame) -> DataFrame:
 
     return filtered_data
 
+
 # This Python function, named filter_data, takes a DataFrame (data) as input and filters it based on specific criteria, returning a new DataFrame with events that meet those criteria. Here's a breakdown of the function:
 #
 # Grouping by Event ID and Counting CDMs:
