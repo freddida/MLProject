@@ -2,7 +2,7 @@ torch>=2.1.2
 pandas>=2.1.4
 scikit-learn>=1.3.2
 matplotlib
-numpy
+numpy>=1.26.3
 seaborn
 torchview
 graphviz
