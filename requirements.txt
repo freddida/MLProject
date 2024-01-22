@@ -13,3 +13,4 @@ dwave-scikit-learn-plugin
 imblearn
 impyute
 black[jupyter]
+kaleido
