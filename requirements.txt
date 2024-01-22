@@ -12,3 +12,8 @@ dwave-system
 dwave-scikit-learn-plugin
 imblearn
 impyute
+<<<<<<< HEAD
+=======
+black[jupyter]
+kaleido
+>>>>>>> 854b5a7c197934f369c8947ebd1a85eeaf2fb858

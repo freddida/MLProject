@@ -1,3 +1,7 @@
 /data/testing/test_data.csv
 /data/training/train_data.csv
+<<<<<<< HEAD
 /venv
+=======
+!/figures/
+>>>>>>> 854b5a7c197934f369c8947ebd1a85eeaf2fb858
