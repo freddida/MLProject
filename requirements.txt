@@ -2,7 +2,7 @@ torch>=2.1.2
 pandas>=2.1.4
 scikit-learn>=1.3.2
 matplotlib
-numpy>=1.26.3
+numpy
 seaborn
 torchview
 graphviz
@@ -12,8 +12,6 @@ dwave-system
 dwave-scikit-learn-plugin
 imblearn
 impyute
-<<<<<<< HEAD
-=======
 black[jupyter]
 kaleido
->>>>>>> 854b5a7c197934f369c8947ebd1a85eeaf2fb858
+jupyter
