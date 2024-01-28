@@ -14,3 +14,4 @@ imblearn
 impyute
 black[jupyter]
 kaleido
+jupyter
