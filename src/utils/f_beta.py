@@ -1,39 +1,21 @@
 import numpy as np
 from sklearn.metrics import mean_squared_error, fbeta_score
 
-'''
-predicted = np.zeros(y_test.shape[0])
-predicted.fill(-5)
-predicted = predicted.reshape(-1, 1)
-'''
 
+def calculate_f_beta_sklearn(y_true, y_pred, beta=2, threshold=-6):
+    # Convert regression predictions to binary classification based on threshold
+    y_pred_binary = (y_pred >= threshold).astype(int)
 
-def f_beta_score(predicted, real, verbose=False):
-    # predicted = predictions_real
-    # real = y_test_real
+    # Convert true values to binary
+    y_true_binary = (y_true >= threshold).astype(int)
 
-    real_binary = []
-    predicted_binary = []
+    # Calculate F-beta score using sklearn's fbeta_score
+    f_beta = fbeta_score(y_true_binary, y_pred_binary, beta=beta)
 
-    for a in list(real):
-        if (a >= -6):
-            real_binary.append(1)
-        else:
-            real_binary.append(0)
+    # Calculate mean squared error for high-risk events
+    mse_hr = mean_squared_error(y_true[y_true >= threshold], y_pred[y_true >= threshold])
 
-    for a in list(predicted):
-        if (a >= -6):
-            predicted_binary.append(1)
-        else:
-            predicted_binary.append(0)
+    # Calculate the final score
+    score = mse_hr / f_beta
 
-    fscore = fbeta_score(real_binary, predicted_binary, 2)
-    real_mse = real[np.where(real >= -6)]
-    predicted_mse = predicted[np.where(real >= -6)]
-    mse = mean_squared_error(real_mse, predicted_mse)
-    score = mse / fscore
-    if verbose == True:
-        print(f"F_score = {fscore}")
-        print(f"MSE = {mse}")
-        print(f"F_Beta Score (Beta=2): {score}")
-    return score
+    return score, f_beta, mse_hr
