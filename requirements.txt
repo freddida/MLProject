@@ -15,3 +15,5 @@ impyute
 black[jupyter]
 kaleido
 jupyter
+keras
+tensorflow
