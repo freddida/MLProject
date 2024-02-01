@@ -1,24 +1,20 @@
-import numpy as np
-from sklearn.metrics import mean_squared_error, fbeta_score
+from sklearn.metrics import fbeta_score
 
 
 def calculate_statistics_for_evaluation(y_true, y_pred, beta=2, threshold=-6):
-    y_true = y_true.flatten()
+    """
+    Calculate F-beta score for binary classification evaluation.
 
-    # Convert regression predictions to binary classification based on threshold
+    Parameters:
+    - y_true (array-like): True labels.
+    - y_pred (array-like): Predicted probabilities or scores.
+    - beta (float, optional): Beta parameter for the F-beta score. Defaults to 2.
+    - threshold (float, optional): Threshold for converting predictions to binary labels. Defaults to -6.
+
+    Returns:
+    - f_beta (float): F-beta score.
+    """
     y_pred_binary = (y_pred >= threshold).astype(int)
-
-    # Convert true values to binary
     y_true_binary = (y_true >= threshold).astype(int)
-
-    # Calculate F-beta score using sklearn's fbeta_score
     f_beta = fbeta_score(y_true_binary, y_pred_binary, beta=beta)
-
-    # Calculate mean squared error for high-risk events
-    mse_hr = mean_squared_error(
-        y_true[y_true >= threshold], y_pred[y_true >= threshold]
-    )
-
-    l_score = mse_hr / f_beta
-
-    return f_beta, mse_hr, l_score
+    return print(f"F-beta Score: {f_beta}")
