@@ -3,7 +3,7 @@ from sklearn.metrics import mean_squared_error, fbeta_score
 
 
 def calculate_statistics_for_evaluation(y_true, y_pred, beta=2, threshold=-6):
-    y_true = y_true.flatten()
+    # y_true = y_true.flatten()
 
     # Convert regression predictions to binary classification based on threshold
     y_pred_binary = (y_pred >= threshold).astype(int)
