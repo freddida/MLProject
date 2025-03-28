@@ -1,5 +1,6 @@
 import numpy as np
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 def plot_distribution(y_array, threshold=None, classification=True):
@@ -26,6 +27,11 @@ def plot_distribution(y_array, threshold=None, classification=True):
 
         # Plot distribution
         sns.histplot(y_risk_class, bins=30, kde=True, color="blue")
+        # Set the background color to white
+        # plt.gca().set_facecolor('white')
+        #
+        # # Save the plot as a PNG file with a white background
+        # plt.savefig("histogram.png", pad_inches=0)
 
         # Calculate statistics
         y_high_risk = np.sum(y_risk_class == 1)
